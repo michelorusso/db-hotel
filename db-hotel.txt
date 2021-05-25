@@ -40,7 +40,7 @@ dell’esecuzione della query)
     SELECT * 
     FROM `ospiti`
     WHERE `document_type`= 'Driver License'
-    AND `date_of_birth` BETWEEN '1975-01-01' and '1975-12-31'
+    AND YEAR(`date_of_birth`) = '1975';
 
 8. Quanti paganti sono anche ospiti?
 
