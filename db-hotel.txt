@@ -46,7 +46,7 @@ dell’esecuzione della query)
 
     SELECT COUNT(*)
     FROM `paganti`
-    WHERE `ospite_id`;
+    WHERE `ospite_id`IS NOT NULL;
 
 9. Quanti posti letto ha l’hotel in totale?
 
