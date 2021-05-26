@@ -34,6 +34,15 @@ primo piano
 -------------------------------------------------------------------------
 5. Prendi i dati di fatturazione per la prenotazione con id=7
 
+    SELECT ospiti.name AS `name` , ospiti.lastname AS `lastname`, ospiti.date_of_birth AS `date of birth` , paganti.address AS `address`, pagamenti.price AS `price`
+    FROM `ospiti`
+    INNER JOIN `prenotazioni_has_ospiti`
+    ON ospiti.id = prenotazioni_has_ospiti.ospite_id
+    INNER JOIN `paganti`
+    ON paganti.ospite_id = ospiti.id
+    INNER JOIN `pagamenti`
+    ON pagamenti.pagante_id = paganti.id
+    WHERE prenotazioni_has_ospiti.prenotazione_id = 7
 
 -------------------------------------------------------------------------
 6. Le stanze sono state tutte prenotate almeno una volta?
