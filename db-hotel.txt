@@ -9,14 +9,19 @@ identità
 
     SELECT *
     FROM `ospiti`
-    WHERE `date_of_birth` > '1989-01-01';
+    WHERE `date_of_birth` >= '1989-01-01 00:00:00';
 
 3. Seleziona tutti gli ospiti che hanno più di 20 anni (al momento
 dell’esecuzione della query)
 
     SELECT *
     FROM `ospiti`
-    WHERE `date_of_birth` < '2001-05-25';
+    WHERE `date_of_birth` < '2001-05-26 00:00:00';
+
+    // Consigliato dalla documentazione di SQL
+    SELECT * 
+    FROM `ospiti`
+    WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 20;
 
 4. Seleziona tutti gli ospiti il cui nome inizia con la D
 
@@ -40,7 +45,7 @@ dell’esecuzione della query)
     SELECT * 
     FROM `ospiti`
     WHERE `document_type`= 'Driver License'
-    AND YEAR(`date_of_birth`) = '1975';
+    AND YEAR(`date_of_birth`) = 1975;
 
 8. Quanti paganti sono anche ospiti?
 
