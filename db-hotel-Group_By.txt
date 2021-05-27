@@ -26,7 +26,7 @@
 4. Fai una analisi per vedere se ci sono ore in cui le prenotazioni sono
 più frequenti
 
-    SELECT COUNT(HOUR(`created_at`)) AS `numero prenotazioni` , HOUR(`created_at`) AS `HOUR`
+    SELECT COUNT(HOUR(`created_at`)) AS `n prenotazioni` , HOUR(`created_at`) AS `HOUR`
     FROM `prenotazioni`
     WHERE `created_at`
     GROUP BY HOUR(`created_at`);
@@ -35,5 +35,9 @@ più frequenti
 5. Quante prenotazioni ha fatto l’ospite che ha fatto più
 prenotazioni? (quante, non chi!)
 
+    SELECT COUNT(`id`) AS `n prenotazioni`, `ospite_id` AS `ospite`
+    FROM `prenotazioni_has_ospiti` 
+    GROUP BY `ospite_id` 
+    ORDER BY `n prenotazioni` DESC LIMIT 2;
 
 -------------------------------------------------------------------------
